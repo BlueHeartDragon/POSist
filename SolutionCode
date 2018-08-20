@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class node
+{
+public:
+    string TimeStamp;
+    int NodeNumber;
+    int NodeId;
+    int ReferenceNodeId;
+    int ChildNodeId;
+    int ReferenceChildNodeId;
+    class data
+    {
+    public:
+        string owner;
+        string address;
+        int mobile;
+        float value;
+    };
+};
+
+int main()
+{
+    int option,NodeNumber=1,ReferenceNodeId=0,ReferenceChildNodeId=2,i=3;
+    node n;
+    node::data d;
+    cout<<"Press 1 to create first node\n";
+    cout<<"Press 2 to create any other node\n";
+    cin>>option;
+    while(i==3)
+    {
+        switch(option)
+        {
+            case 1 :cout<<"Enter current date and time :\t";
+                    cin>>n.TimeStamp;
+                    cout<<"Enter the owner's name :\t";
+                    cin>>d.owner;
+                    cout<<"Enter the owner's address :\t";
+                    cin>>d.address;
+                    cout<<"Enter the owner's mobile number :\t";
+                    cin>>d.mobile;
+                    cout<<"Enter node's value :\t";
+                    cin>>d.value;
+                    n.NodeNumber = NodeNumber;
+                    n.NodeId = 100 + n.NodeNumber;
+                    n.ReferenceNodeId = ReferenceNodeId;
+                    n.ChildNodeId = n.NodeId++;
+                    n.ReferenceChildNodeId = ReferenceChildNodeId;
+                    break;
+            case 2 :cout<<"Enter current date and time :\t";
+                    cin>>n.TimeStamp;
+                    cout<<"Enter the owner's name :\t";
+                    cin>>d.owner;
+                    cout<<"Enter the owner's address :\t";
+                    cin>>d.address;
+                    cout<<"Enter the owner's mobile number :\t";
+                    cin>>d.mobile;
+                    cout<<"Enter node's value :\t";
+                    cin>>d.value;
+                    NodeNumber++;
+                    ReferenceNodeId++;
+                    ReferenceChildNodeId++;
+                    n.NodeNumber = NodeNumber;
+                    n.NodeId = 100 + n.NodeNumber;
+                    n.ReferenceNodeId = ReferenceNodeId;
+                    n.ChildNodeId = n.NodeId++;
+                    n.ReferenceChildNodeId = ReferenceChildNodeId;
+                    break;
+         }
+         cout<<"\nEnter 3 to create more nodes. Press any other node.\n"
+         cin>>i;
+         if(i==3)
+            option=2;
+         else
+            break;
+    }
+
+    return 0;
+}
